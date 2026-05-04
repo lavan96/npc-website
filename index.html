@@ -10,10 +10,10 @@
     />
     <title>NPC Services | Private Advisory</title>
     
-    <!-- Fonts: Playfair Display (Serif) for headings, Inter (Sans) for body -->
+    <!-- Fonts: Cormorant Garamond (Serif) for headings, Montserrat (Sans) for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,28 +23,28 @@
           extend: {
             colors: {
               gold: {
-                100: '#f9f1d8',
-                200: '#f0dfaa',
-                300: '#e6cc7d',
-                400: '#deb853',
-                500: '#d4af37', // Base Gold
-                600: '#aa8c2c',
-                700: '#806921',
-                800: '#554616',
-                900: '#2b230b',
+                100: '#FAF7EE',
+                200: '#EBE2CD',
+                300: '#DCCDAA',
+                400: '#CEB887',
+                500: '#C2A364', // Base Gold
+                600: '#9C8049',
+                700: '#755F35',
+                800: '#4D3E21',
+                900: '#261E0E',
               },
               charcoal: {
-                800: '#1f1f1f',
-                900: '#121212',
-                950: '#0a0a0a', // Deep Matte Black
+                800: '#1C1B19',
+                900: '#141311',
+                950: '#0C0C0B', // Deep Matte Black/Brown
               }
             },
             fontFamily: {
-              serif: ['"Playfair Display"', 'serif'],
-              sans: ['"Inter"', 'sans-serif'],
+              serif: ['"Cormorant Garamond"', 'serif'],
+              sans: ['"Montserrat"', 'sans-serif'],
             },
             backgroundImage: {
-              'luxury-gradient': 'linear-gradient(to bottom right, #1a1a1a, #0a0a0a)',
+              'luxury-gradient': 'radial-gradient(ellipse at top, #141311, #0C0C0B)',
             }
           }
         }
@@ -52,52 +52,44 @@
     </script>
     <style>
       body {
-        background-color: #0a0a0a;
-        color: #f5f5f5;
-        font-family: 'Inter', sans-serif;
+        background-color: #0C0C0B;
+        color: #f5f2ed;
+        font-family: 'Montserrat', sans-serif;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
       h1, h2, h3, h4, h5, h6 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Cormorant Garamond', serif;
       }
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
-        width: 8px;
+        width: 4px;
       }
       ::-webkit-scrollbar-track {
-        background: #0a0a0a;
+        background: #0C0C0B;
       }
       ::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 4px;
+        background: #261E0E;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #d4af37;
+        background: #C2A364;
       }
       
-      .fade-enter {
-        opacity: 0;
-        transform: translateY(20px);
+      /* Utilities */
+      .glass-panel {
+        background: rgba(20, 19, 17, 0.4);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(194, 163, 100, 0.1);
       }
-      .fade-enter-active {
-        opacity: 1;
-        transform: translateY(0);
-        transition: opacity 700ms ease-out, transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      
+      .text-balance {
+        text-wrap: balance;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-  }
-}
-</script>
 </head>
   <body>
     <div id="root"></div>
-  </body>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>

@@ -22,5 +22,6 @@ export enum PageRoutes {
   ABOUT = '/about',
   SERVICES = '/services',
   TEAM = '/team',
+  INSIGHTS = '/insights',
   CONTACT = '/contact',
 }

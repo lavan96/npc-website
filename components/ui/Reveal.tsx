@@ -1,55 +1,58 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { motion, useInView, useAnimation } from 'motion/react';
 
 interface RevealProps {
   children: React.ReactNode;
   width?: "fit-content" | "100%";
   delay?: number;
   className?: string;
+  direction?: 'up' | 'down' | 'left' | 'right';
 }
 
 export const Reveal: React.FC<RevealProps> = ({ 
   children, 
-  width = "fit-content", 
+  width = "100%", 
   delay = 0,
-  className = "" 
+  className = "",
+  direction = 'up'
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-10% 0px -10% 0px" });
+  const mainControls = useAnimation();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.1, // Trigger when 10% visible
-        rootMargin: "0px 0px -50px 0px" // Slightly before bottom
-      }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (isInView) {
+      mainControls.start("visible");
     }
+  }, [isInView, mainControls]);
 
-    return () => {
-      if (ref.current) observer.disconnect();
-    };
-  }, []);
-
-  const transitionDelay = `${delay}ms`;
+  const variants = {
+    hidden: { 
+      opacity: 0, 
+      y: direction === 'up' ? 40 : direction === 'down' ? -40 : 0,
+      x: direction === 'left' ? 40 : direction === 'right' ? -40 : 0,
+      scale: 0.98,
+      filter: 'blur(10px)'
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      x: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: delay / 1000 }
+    }
+  };
 
   return (
-    <div 
-      ref={ref} 
-      style={{ width, transitionDelay }} 
-      className={`${className} transition-all duration-1000 ease-out transform ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
-    >
-      {children}
+    <div ref={ref} style={{ width }} className={className}>
+      <motion.div
+        variants={variants}
+        initial="hidden"
+        animate={mainControls}
+      >
+        {children}
+      </motion.div>
     </div>
   );
 };

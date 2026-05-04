@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline';
@@ -13,22 +14,37 @@ export const Button: React.FC<ButtonProps> = ({
   ...props 
 }) => {
   
-  const baseStyles = "relative px-8 py-3 text-sm font-medium tracking-wider uppercase transition-all duration-300 ease-out transform disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseStyles = "relative px-8 py-3 text-xs md:text-sm tracking-[0.15em] uppercase transition-all duration-500 ease-out disabled:opacity-50 disabled:cursor-not-allowed group overflow-hidden bg-transparent";
   
-  const variants = {
-    primary: "bg-gold-500 text-charcoal-950 hover:bg-gold-400 hover:-translate-y-0.5 shadow-md shadow-gold-900/20",
-    secondary: "bg-charcoal-800 text-gold-200 border border-charcoal-700 hover:border-gold-500/50 hover:text-gold-400",
-    outline: "bg-transparent border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-charcoal-950"
-  };
-
   const widthClass = fullWidth ? "w-full" : "w-auto";
 
+  let innerStyles = '';
+  let borderStyles = '';
+
+  if (variant === 'primary') {
+    innerStyles = "text-charcoal-950 font-medium z-10 relative";
+    borderStyles = "absolute inset-0 bg-gold-500 transition-transform duration-500 group-hover:scale-105";
+  } else if (variant === 'secondary') {
+    innerStyles = "text-gold-200 z-10 relative font-light group-hover:text-gold-400";
+    borderStyles = "absolute inset-0 bg-charcoal-800 border border-charcoal-700 transition-all duration-500 group-hover:border-gold-500/50";
+  } else if (variant === 'outline') {
+    innerStyles = "text-gold-500 z-10 relative font-light group-hover:text-charcoal-950 transition-colors duration-500";
+    borderStyles = "absolute inset-0 border border-gold-500 transition-all duration-500";
+  }
+
   return (
-    <button 
-      className={`${baseStyles} ${variants[variant]} ${widthClass} ${className}`}
+    <motion.button 
+      whileTap={{ scale: 0.98 }}
+      className={`${baseStyles} ${widthClass} ${className}`}
       {...props}
     >
-      {children}
-    </button>
+      <div className={borderStyles} />
+      {variant === 'outline' && (
+        <div className="absolute inset-0 bg-gold-500 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+      )}
+      <div className={innerStyles}>
+        {children}
+      </div>
+    </motion.button>
   );
 };
