@@ -64,12 +64,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             : 'bg-gradient-to-b from-charcoal-950/80 to-transparent py-8 border-transparent'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-center md:justify-between items-center relative">
           {/* Logo */}
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="cursor-pointer z-50 group flex items-center"
+            className="cursor-pointer z-50 group flex items-center mx-auto md:mx-0"
             aria-label="Naidu Property Consulting Services home"
           >
             <img
@@ -109,7 +109,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden text-gold-200 z-50 p-2 mix-blend-difference"
+            className="md:hidden text-gold-200 z-50 p-2 mix-blend-difference absolute right-6"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={28} strokeWidth={1} /> : <Menu size={28} strokeWidth={1} />}
@@ -125,7 +125,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
             exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 bg-charcoal-950/95 z-40 flex flex-col justify-center items-center gap-10"
+            className="fixed inset-0 bg-charcoal-950/95 z-40 flex flex-col justify-center items-center gap-8"
           >
             {NAV_ITEMS.map((item, idx) => (
               <motion.div
@@ -138,7 +138,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
-                    `text-4xl text-balance font-serif font-light tracking-wide ${isActive ? 'text-gold-500 italic' : 'text-zinc-200'}`
+                    `text-[2rem] text-balance font-serif font-light tracking-wide ${isActive ? 'text-gold-500 italic' : 'text-zinc-200'}`
                   }
                 >
                   {item.label}
