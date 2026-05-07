@@ -125,7 +125,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
             exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 bg-charcoal-950/95 z-40 flex flex-col justify-center items-center gap-8"
+            className="fixed inset-0 bg-charcoal-950/95 z-40 flex flex-col justify-center items-center gap-5"
           >
             {NAV_ITEMS.map((item, idx) => (
               <motion.div
@@ -138,7 +138,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
-                    `text-[2rem] text-balance font-serif font-light tracking-wide ${isActive ? 'text-gold-500 italic' : 'text-zinc-200'}`
+                    `text-[1.55rem] sm:text-[1.7rem] text-balance font-serif font-light tracking-wide ${isActive ? 'text-gold-500 italic' : 'text-zinc-200'}`
                   }
                 >
                   {item.label}
@@ -153,7 +153,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             >
               <button 
                 onClick={() => navigate(PageRoutes.CONTACT)}
-                className="mt-8 border border-gold-500 px-12 py-4 rounded-full text-sm uppercase tracking-[0.3em] text-gold-500"
+                className="mt-5 border border-gold-500 px-10 py-3 rounded-full text-xs uppercase tracking-[0.25em] text-gold-500"
               >
                 Inquire
               </button>
