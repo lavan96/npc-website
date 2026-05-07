@@ -79,37 +79,38 @@ export const Services: React.FC = () => {
             {[
               {
                 title: "New Property Chapter",
-                desc: "Initial consultation to understand goals, lifestyle needs, financial position, and timeline to create a tailored strategy."
+                desc: "Initial consultation to understand goals, lifestyle needs, financial position, and timeline to create a tailored strategy.",
+                metric: "Client Goals Mapped"
               },
               {
                 title: "Financial Consultation",
-                desc: "Work with our strategist to confirm borrowing capacity, structure finance optimally, and set a clear budget framework."
+                desc: "Work with our strategist to confirm borrowing capacity, structure finance optimally, and set a clear budget framework.",
+                metric: "Borrowing Strategy Calibrated"
               },
               {
                 title: "Presentation of Property",
                 desc: "We present a meticulously structured report covering 67 refined sections of market, financial, and risk data.",
-                highlight: true
+                metric: "67 Data Points Analyzed"
               },
               {
                 title: "Negotiation & Positioning",
-                desc: "Strategic representation where we aggressively leverage market insights to secure the best possible terms and price."
+                desc: "Strategic representation where we aggressively leverage market insights to secure the best possible terms and price.",
+                metric: "Negotiation Levers Activated"
               },
               {
                 title: "Countdown to Settlement",
-                desc: "Complete end-to-end coordination with solicitors and brokers to ensure flawless execution and handover."
+                desc: "Complete end-to-end coordination with solicitors and brokers to ensure flawless execution and handover.",
+                metric: "Settlement Milestones Managed"
               }
             ].map((step, idx) => (
               <Reveal key={idx} delay={idx * 150} direction="up" className="h-full">
-                <div className={`p-8 h-full border ${step.highlight ? 'bg-gold-500/[0.05] border-gold-500/50' : 'bg-charcoal-900/30 border-charcoal-800 hover:border-gold-500/30'} transition-colors duration-500 relative flex flex-col`}>
+                <div className="p-8 h-full border bg-gold-500/[0.05] border-gold-500/50 transition-colors duration-500 relative flex flex-col">
                   <div className="text-gold-500/50 font-serif text-2xl mb-6">0{idx + 1}</div>
-                  <h3 className={`text-xl font-serif mb-4 ${step.highlight ? 'text-gold-400' : 'text-white'}`}>{step.title}</h3>
+                  <h3 className="text-xl font-serif mb-4 text-gold-400">{step.title}</h3>
                   <p className="text-zinc-400 font-light text-sm leading-relaxed">{step.desc}</p>
-                  
-                  {step.highlight && (
-                    <div className="mt-8 pt-6 border-t border-gold-500/20 text-xs text-gold-500/80 font-medium tracking-wide uppercase">
-                      67 Data Points Analyzed
-                    </div>
-                  )}
+                  <div className="mt-auto pt-6 border-t border-gold-500/20 text-xs text-gold-500/80 font-medium tracking-wide uppercase">
+                    {step.metric}
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -149,18 +150,18 @@ export const Services: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Financial", items: ["Purchase Price Validation", "Rental Yield Estimation", "Cash Flow Assessment"] },
-              { title: "Legal", items: ["Contract of Sale Review", "Title & Ownership Check", "Zoning & Easements"] },
-              { title: "Property", items: ["Structural Integrity", "Pest & Termite Inspection", "Systems & Finishes"] },
-              { title: "Location", items: ["Vacancy & Population Growth", "Employment Infrastructure", "Supply & Safety"] },
-              { title: "Risk", items: ["Market Volatility", "Interest Rate Buffers", "Exit & Liquidity Strategies"] },
-              { title: "Strategy", items: ["Investment Goal Alignment", "Borrowing Impact", "10-Year Viability"] }
+              { title: "Financial", items: ["Purchase Price Validation", "Rental Yield Estimation", "Cash Flow Assessment"], metric: "Cash Flow Signals Validated" },
+              { title: "Legal", items: ["Contract of Sale Review", "Title & Ownership Check", "Zoning & Easements"], metric: "Contract Risks Reviewed" },
+              { title: "Property", items: ["Structural Integrity", "Pest & Termite Inspection", "Systems & Finishes"], metric: "Asset Condition Verified" },
+              { title: "Location", items: ["Vacancy & Population Growth", "Employment Infrastructure", "Supply & Safety"], metric: "Market Fundamentals Mapped" },
+              { title: "Risk", items: ["Market Volatility", "Interest Rate Buffers", "Exit & Liquidity Strategies"], metric: "Risk Scenarios Stress-Tested" },
+              { title: "Strategy", items: ["Investment Goal Alignment", "Borrowing Impact", "10-Year Viability"], metric: "Portfolio Fit Confirmed" }
             ].map((pillar, i) => (
               <Reveal key={i} delay={i * 100} direction="up">
-                <div className="border border-charcoal-800 p-8 h-full bg-[#0C0C0B] hover:border-gold-500/30 transition-colors duration-500">
-                  <div className="flex items-center justify-between mb-6 border-b border-charcoal-800 pb-4">
-                    <h3 className="text-xl font-serif text-white">{pillar.title}</h3>
-                    <CheckCircle2 size={20} className="text-gold-500/50" />
+                <div className="border border-gold-500/50 p-8 h-full bg-gold-500/[0.05] transition-colors duration-500 flex flex-col">
+                  <div className="flex items-center justify-between mb-6 border-b border-gold-500/20 pb-4">
+                    <h3 className="text-xl font-serif text-gold-400">{pillar.title}</h3>
+                    <CheckCircle2 size={20} className="text-gold-500/60" />
                   </div>
                   <ul className="space-y-4">
                     {pillar.items.map((item, idx) => (
@@ -170,6 +171,9 @@ export const Services: React.FC = () => {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-auto pt-6 border-t border-gold-500/20 text-xs text-gold-500/80 font-medium tracking-wide uppercase">
+                    {pillar.metric}
+                  </div>
                 </div>
               </Reveal>
             ))}
