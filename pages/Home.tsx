@@ -146,14 +146,14 @@ export const Home: React.FC = () => {
               }
             ].map((audience, idx) => (
               <Reveal key={idx} delay={idx * 150} direction="up">
-                <div className="bg-[#0C0C0B] border border-charcoal-800 p-10 h-full hover:border-gold-500/40 transition-colors duration-500 flex flex-col justify-between group">
+                <div className="bg-gold-500/[0.05] border border-gold-500/50 p-10 h-full transition-all duration-700 flex flex-col justify-between group hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)] relative overflow-hidden">
                   <div>
-                    <h3 className="text-xl font-serif text-white mb-4 group-hover:text-gold-400 transition-colors">{audience.title}</h3>
-                    <p className="text-zinc-500 font-light leading-relaxed text-sm">
+                    <h3 className="text-xl font-serif text-gold-400 mb-4 transition-colors">{audience.title}</h3>
+                    <p className="text-zinc-400 font-light leading-relaxed text-sm group-hover:text-zinc-300 transition-colors duration-500">
                       {audience.desc}
                     </p>
                   </div>
-                  <Target className="w-5 h-5 text-charcoal-800 mt-8 group-hover:text-gold-500/50 transition-colors" />
+                  <Target className="w-5 h-5 text-gold-500/50 mt-8 transition-all duration-700 group-hover:text-gold-400 group-hover:rotate-12 group-hover:scale-125" />
                 </div>
               </Reveal>
             ))}
@@ -177,7 +177,7 @@ export const Home: React.FC = () => {
           
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             <Reveal direction="left" delay={200}>
-              <div className="space-y-6">
+              <div className="space-y-6 border border-gold-500/50 bg-gold-500/[0.05] p-8 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_70px_rgba(194,163,100,0.14)]">
                 <h3 className="text-gold-500 text-[10px] uppercase tracking-[0.2em]">Our Process Requires:</h3>
                 <ul className="space-y-4">
                   {['Commitment to a long-term strategy', 'Willingness to follow data-driven guidance', 'A focus on building wealth, not chasing deals'].map((req, i) => (
@@ -191,7 +191,7 @@ export const Home: React.FC = () => {
             </Reveal>
             
             <Reveal direction="left" delay={400}>
-              <div className="space-y-6">
+              <div className="space-y-6 border border-gold-500/50 bg-gold-500/[0.05] p-8 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_70px_rgba(194,163,100,0.14)]">
                 <h3 className="text-zinc-500 text-[10px] uppercase tracking-[0.2em]">We are NOT suited for:</h3>
                 <ul className="space-y-4">
                   {['People looking for quick wins or shortcuts', 'Emotional buyers driven by impulse', 'Those unwilling to follow a structured process'].map((notFit, i) => (
@@ -226,7 +226,7 @@ export const Home: React.FC = () => {
                 { title: "Strategic Negotiation", desc: "Securing the premium asset at the optimal price through experienced deal-making and auction bidding." }
               ].map((service, idx) => (
                 <Reveal key={idx} delay={idx * 100} direction="up">
-                  <div className={`py-12 border-b border-charcoal-800 hover:border-gold-500/40 group transition-colors duration-500 ${idx === 0 ? 'border-t' : ''}`}>
+                  <div className={`p-8 mb-6 border border-gold-500/50 bg-gold-500/[0.05] group transition-all duration-700 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.14)] ${idx === 0 ? '' : ''}`}>
                     <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
                       <h3 className="text-2xl md:text-3xl font-serif text-white group-hover:text-gold-400 transition-colors md:w-1/3">
                         {service.title}

@@ -24,4 +24,6 @@ export enum PageRoutes {
   TEAM = '/team',
   INSIGHTS = '/insights',
   CONTACT = '/contact',
+  PRIVACY = '/privacy-policy',
+  TERMS = '/terms-and-conditions',
 }
