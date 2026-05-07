@@ -67,7 +67,7 @@ export const Home: React.FC = () => {
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop" 
-                  alt="Strategic Consulting" 
+                  alt="Strategic property consultation in a premium office" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
                 />
                 <div className="absolute inset-0 max-h-full bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent pointer-events-none" />
