@@ -61,10 +61,11 @@ export const About: React.FC = () => {
           <div className="lg:col-span-7 relative">
             <Reveal direction="left" delay={300} className="h-full">
               <div className="relative h-full min-h-[500px] w-full">
-                <img 
-                  src="/ChatGPT Image May 8, 2026, 04_03_02 AM.png" 
-                  alt="Office Meeting" 
-                  className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[2s] ease-in-out"
+                <div
+                  role="img"
+                  aria-label="Office Meeting"
+                  className="absolute inset-0 w-full h-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-[2s] ease-in-out"
+                  style={{ backgroundImage: 'url("/ChatGPT Image May 8, 2026, 04_03_02 AM.png")' }}
                 />
                 <div className="absolute inset-0 mix-blend-multiply bg-gold-900/10 pointer-events-none" />
                 <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 translate-y-4 pointer-events-none hidden md:block" />
