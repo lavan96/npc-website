@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Layout } from '../components/Layout';
 import { Reveal } from '../components/ui/Reveal';
 import { Button } from '../components/ui/Button';
@@ -6,8 +6,36 @@ import { ArrowRight, TrendingUp, ShieldCheck, PieChart, Building2, Target, Check
 import { useNavigate } from 'react-router-dom';
 import { PageRoutes } from '../types';
 
+const consultationImageSourcePath = '/assets/strategic-consultation-image.txt';
+const transparentPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+
 export const Home: React.FC = () => {
   const navigate = useNavigate();
+  const [consultationImageSource, setConsultationImageSource] = useState(transparentPlaceholder);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetch(consultationImageSourcePath)
+      .then((response) => response.text())
+      .then((source) => {
+        if (!isMounted) {
+          return;
+        }
+
+        setConsultationImageSource(
+          source
+            .split('\n')
+            .filter((line) => !line.startsWith('#'))
+            .join('')
+            .trim(),
+        );
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <Layout>
