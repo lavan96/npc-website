@@ -24,7 +24,7 @@ export const Team: React.FC = () => {
           <Reveal direction="left" className="md:w-1/2">
             <h3 className="text-gold-500 text-xs tracking-[0.4em] uppercase font-light mb-8">A Network Built Around You</h3>
             <h1 className="text-5xl md:text-7xl lg:text-[70px] xl:text-[90px] font-serif text-white mb-6 leading-[1.05] tracking-tight">
-              The <span className="italic text-gold-500 font-light">Syndicate.</span>
+              The <span className="italic text-gold-500 font-light">Collective.</span>
             </h1>
           </Reveal>
           <Reveal direction="right" delay={200} className="md:w-1/2 md:pb-4 border-l border-gold-500/20 pl-8 md:pl-12">
