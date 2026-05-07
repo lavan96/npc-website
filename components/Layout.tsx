@@ -241,8 +241,8 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           <div className="border-t border-charcoal-800/50 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-zinc-600">
             <p>&copy; {new Date().getFullYear()} Naidu Property Consulting. All rights reserved.</p>
             <div className="flex gap-8 mt-4 md:mt-0">
-              <a href="#" className="hover:text-gold-500 transition-colors">Privacy</a>
-              <a href="#" className="hover:text-gold-500 transition-colors">Terms</a>
+              <NavLink to={PageRoutes.PRIVACY} className="hover:text-gold-500 transition-colors">Privacy Policy</NavLink>
+              <NavLink to={PageRoutes.TERMS} className="hover:text-gold-500 transition-colors">Terms & Conditions</NavLink>
             </div>
           </div>
         </div>
