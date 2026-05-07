@@ -18,7 +18,7 @@ export const Home: React.FC = () => {
           <div className="absolute inset-0 bg-charcoal-950/40 mix-blend-multiply z-10" />
           <img 
             src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2675&auto=format&fit=crop" 
-            alt="Luxury Architecture" 
+                  alt="Luxury Architecture" 
             className="w-full h-full object-cover scale-[1.02] transform hover:scale-[1.05] transition-transform duration-[20s] ease-out opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/60 to-transparent z-10" />
@@ -66,8 +66,8 @@ export const Home: React.FC = () => {
               <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 -translate-y-4" />
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop" 
-                  alt="Strategic Consulting" 
+                  src="https://images.pexels.com/photos/6285104/pexels-photo-6285104.jpeg?cs=srgb&dl=pexels-gustavo-fring-6285104.jpg&fm=jpg" 
+                  alt="High-level strategic property advisory consultation with clients reviewing portfolio and financial planning documents" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
                 />
                 <div className="absolute inset-0 max-h-full bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent pointer-events-none" />
