@@ -38,11 +38,11 @@ export const Insights: React.FC = () => {
             
             {/* Resource 1: The Survival Guide */}
             <Reveal direction="right">
-              <div className="group relative border border-charcoal-800 bg-charcoal-950/50 hover:border-gold-500/30 transition-colors duration-500 overflow-hidden flex flex-col h-full">
+              <div className="group relative border border-gold-500/50 bg-gold-500/[0.05] transition-all duration-700 overflow-hidden flex flex-col h-full hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)]">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold-500/0 via-gold-500/50 to-gold-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
-                <div className="p-12 md:p-16 flex-grow border-b border-charcoal-800/50">
-                  <div className="w-16 h-16 rounded-full border border-gold-500/20 bg-charcoal-900 flex items-center justify-center mb-8 shadow-inner">
+                <div className="p-12 md:p-16 flex-grow border-b border-gold-500/20">
+                  <div className="w-16 h-16 rounded-full border border-gold-500/30 bg-gold-500/10 flex items-center justify-center mb-8 shadow-inner transition-all duration-700 group-hover:scale-110 group-hover:rotate-3">
                     <FileText className="text-gold-500/80 w-6 h-6" />
                   </div>
                   
@@ -64,7 +64,7 @@ export const Insights: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-8 md:p-12 bg-[#0C0C0B] relative">
+                <div className="p-8 md:p-12 bg-gold-500/[0.03] relative">
                   {!guideRequested ? (
                     <div className="space-y-6">
                       <h4 className="text-white font-serif text-xl flex items-center gap-3">
@@ -97,16 +97,16 @@ export const Insights: React.FC = () => {
 
             {/* Resource 2: Due Diligence Checklist */}
             <Reveal direction="left" delay={200}>
-              <div className="group relative border border-charcoal-800 bg-charcoal-950/50 hover:border-gold-500/30 transition-colors duration-500 overflow-hidden flex flex-col h-full">
+              <div className="group relative border border-gold-500/50 bg-gold-500/[0.05] transition-all duration-700 overflow-hidden flex flex-col h-full hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)]">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold-500/0 via-gold-500/50 to-gold-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
-                <div className="p-12 md:p-16 flex-grow border-b border-charcoal-800/50 relative overflow-hidden">
+                <div className="p-12 md:p-16 flex-grow border-b border-gold-500/20 relative overflow-hidden">
                   {/* Faint background number */}
                   <div className="absolute -right-8 -bottom-8 text-[150px] font-serif font-bold text-charcoal-900/40 select-none hidden md:block">
                     67
                   </div>
 
-                  <div className="w-16 h-16 rounded-full border border-gold-500/20 bg-charcoal-900 flex items-center justify-center mb-8 shadow-inner relative z-10">
+                  <div className="w-16 h-16 rounded-full border border-gold-500/30 bg-gold-500/10 flex items-center justify-center mb-8 shadow-inner relative z-10 transition-all duration-700 group-hover:scale-110 group-hover:rotate-3">
                     <Search className="text-gold-500/80 w-6 h-6" />
                   </div>
                   
@@ -128,7 +128,7 @@ export const Insights: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-8 md:p-12 bg-[#0C0C0B] relative">
+                <div className="p-8 md:p-12 bg-gold-500/[0.03] relative">
                   {!checklistRequested ? (
                     <div className="space-y-6">
                       <h4 className="text-white font-serif text-xl flex items-center gap-3">
