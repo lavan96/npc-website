@@ -62,7 +62,7 @@ export const About: React.FC = () => {
             <Reveal direction="left" delay={300} className="h-full">
               <div className="relative h-full min-h-[500px] w-full">
                 <img 
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2669&auto=format&fit=crop" 
+                  src="/ChatGPT Image May 8, 2026, 03_43_35 AM.png" 
                   alt="Office Meeting" 
                   className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[2s] ease-in-out"
                 />
