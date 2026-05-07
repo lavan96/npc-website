@@ -28,7 +28,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: PageRoutes.HOME },
   { label: 'About', path: PageRoutes.ABOUT },
   { label: 'Services', path: PageRoutes.SERVICES },
-  { label: 'The Syndicate', path: PageRoutes.TEAM },
+  { label: 'The Collective', path: PageRoutes.TEAM },
   { label: 'Insights', path: PageRoutes.INSIGHTS },
   { label: 'Contact', path: PageRoutes.CONTACT },
 ];
