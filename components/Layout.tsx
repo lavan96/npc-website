@@ -3,6 +3,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight, ChevronRight, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import { NavItem, PageRoutes } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
+import { brandLogo } from '../assets/naiduPropertyLogo';
 
 // Custom TikTok Icon matching Lucide's style
 const TikTok = ({ size = 24, className = '', strokeWidth = 2, ...props }: any) => (
@@ -27,7 +28,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: PageRoutes.HOME },
   { label: 'About', path: PageRoutes.ABOUT },
   { label: 'Services', path: PageRoutes.SERVICES },
-  { label: 'The Syndicate', path: PageRoutes.TEAM },
+  { label: 'The Collective', path: PageRoutes.TEAM },
   { label: 'Insights', path: PageRoutes.INSIGHTS },
   { label: 'Contact', path: PageRoutes.CONTACT },
 ];
@@ -63,16 +64,20 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             : 'bg-gradient-to-b from-charcoal-950/80 to-transparent py-8 border-transparent'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-center md:justify-between items-center relative">
           {/* Logo */}
-          <div onClick={() => navigate('/')} className="cursor-pointer z-50 group flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full border border-gold-500/50 flex items-center justify-center group-hover:bg-gold-500 transition-colors duration-500">
-              <div className="w-2 h-2 rounded-full bg-gold-500 group-hover:bg-charcoal-950 transition-colors duration-500" />
-            </div>
-            <h1 className="text-xl md:text-2xl font-serif tracking-widest text-white mt-1 group-hover:text-gold-400 transition-colors duration-500">
-              NPC <span className="text-gold-500 text-[10px] md:text-xs font-sans tracking-[0.3em] font-light opacity-80 uppercase align-middle ml-1">Services</span>
-            </h1>
-          </div>
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            className="cursor-pointer z-50 group flex items-center mx-auto md:mx-0"
+            aria-label="Naidu Property Consulting Services home"
+          >
+            <img
+              src={brandLogo}
+              alt="Naidu Property Consulting Services"
+              className="w-[170px] sm:w-[210px] md:w-[240px] h-auto transition-opacity duration-500 group-hover:opacity-85"
+            />
+          </button>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-10">
@@ -104,7 +109,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden text-gold-200 z-50 p-2 mix-blend-difference"
+            className="md:hidden text-gold-200 z-50 p-2 mix-blend-difference absolute right-6"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={28} strokeWidth={1} /> : <Menu size={28} strokeWidth={1} />}
@@ -120,7 +125,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
             exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 bg-charcoal-950/95 z-40 flex flex-col justify-center items-center gap-10"
+            className="fixed inset-0 bg-charcoal-950/95 z-40 flex flex-col justify-center items-center gap-5"
           >
             {NAV_ITEMS.map((item, idx) => (
               <motion.div
@@ -133,7 +138,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
-                    `text-4xl text-balance font-serif font-light tracking-wide ${isActive ? 'text-gold-500 italic' : 'text-zinc-200'}`
+                    `text-[1.55rem] sm:text-[1.7rem] text-balance font-serif font-light tracking-wide ${isActive ? 'text-gold-500 italic' : 'text-zinc-200'}`
                   }
                 >
                   {item.label}
@@ -148,7 +153,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             >
               <button 
                 onClick={() => navigate(PageRoutes.CONTACT)}
-                className="mt-8 border border-gold-500 px-12 py-4 rounded-full text-sm uppercase tracking-[0.3em] text-gold-500"
+                className="mt-5 border border-gold-500 px-10 py-3 rounded-full text-xs uppercase tracking-[0.25em] text-gold-500"
               >
                 Inquire
               </button>
@@ -171,11 +176,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20 mb-20">
             <div className="md:col-span-12 lg:col-span-5">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-8 rounded-full border border-gold-500/50 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-gold-500" />
-                </div>
-                <h2 className="text-3xl font-serif text-white tracking-widest mt-1">NPC</h2>
+              <div className="mb-8">
+                <img
+                  src={brandLogo}
+                  alt="Naidu Property Consulting Services"
+                  className="w-[260px] sm:w-[320px] h-auto"
+                />
               </div>
               <p className="text-zinc-400 text-sm leading-relaxed max-w-sm mb-10 font-light">
                 An exclusive private property advisory firm trusted by serious investors. 
@@ -235,8 +241,8 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           <div className="border-t border-charcoal-800/50 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-zinc-600">
             <p>&copy; {new Date().getFullYear()} Naidu Property Consulting. All rights reserved.</p>
             <div className="flex gap-8 mt-4 md:mt-0">
-              <a href="#" className="hover:text-gold-500 transition-colors">Privacy</a>
-              <a href="#" className="hover:text-gold-500 transition-colors">Terms</a>
+              <NavLink to={PageRoutes.PRIVACY} className="hover:text-gold-500 transition-colors">Privacy Policy</NavLink>
+              <NavLink to={PageRoutes.TERMS} className="hover:text-gold-500 transition-colors">Terms & Conditions</NavLink>
             </div>
           </div>
         </div>

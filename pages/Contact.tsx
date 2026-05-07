@@ -31,7 +31,7 @@ export const Contact: React.FC = () => {
           {/* Form */}
           <div className="lg:col-span-7 relative">
             <div className="absolute -inset-4 bg-charcoal-900/50 backdrop-blur-3xl transform -skew-x-[4deg] hidden md:block" />
-            <div className="bg-charcoal-900/80 backdrop-blur-xl p-8 md:p-16 border border-charcoal-800 shadow-2xl relative z-10">
+            <div className="bg-gold-500/[0.05] backdrop-blur-xl p-8 md:p-16 border border-gold-500/50 shadow-2xl relative z-10 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)]">
               <Reveal direction="right" delay={200}>
                 <form className="space-y-10">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -91,7 +91,7 @@ export const Contact: React.FC = () => {
           {/* Contact Details */}
           <div className="lg:col-span-5 space-y-16 py-12 md:pl-8">
             <Reveal direction="left" delay={400}>
-              <div className="border-l border-gold-500/30 pl-8">
+              <div className="border border-gold-500/50 bg-gold-500/[0.05] p-8 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_70px_rgba(194,163,100,0.14)]">
                 <h3 className="text-white font-serif text-3xl mb-8 tracking-tight">Direct Access</h3>
                 <div className="space-y-6 text-zinc-400 font-light text-lg">
                   <a href="mailto:admin@npcservices.com.au" className="block hover:text-gold-500 transition-colors w-fit">admin@npcservices.com.au</a>
@@ -101,29 +101,27 @@ export const Contact: React.FC = () => {
             </Reveal>
 
             <Reveal direction="left" delay={500}>
-              <div className="border-l border-charcoal-800 pl-8">
-                <h3 className="text-white font-serif text-3xl mb-8 tracking-tight">Private Offices</h3>
-                <div className="space-y-12">
-                  <div className="group">
-                    <h4 className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-4 group-hover:text-gold-400 transition-colors">Sydney HQ</h4>
-                    <p className="text-zinc-500 text-sm leading-loose font-light group-hover:text-zinc-400 transition-colors">Level 35, Tower One<br/>International Towers<br/>Barangaroo NSW 2000</p>
+              <div className="border border-gold-500/50 bg-gold-500/[0.05] p-8 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_70px_rgba(194,163,100,0.14)]">
+                <div className="flex items-end justify-between gap-6 mb-8 border-b border-gold-500/20 pb-5">
+                  <div>
+                    <span className="text-gold-500 text-[10px] uppercase tracking-[0.25em] font-light block mb-3">Coverage Map</span>
+                    <h3 className="text-white font-serif text-3xl tracking-tight">Location Service</h3>
                   </div>
-                  <div className="group">
-                    <h4 className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-4 group-hover:text-gold-400 transition-colors">Melbourne</h4>
-                    <p className="text-zinc-500 text-sm leading-loose font-light group-hover:text-zinc-400 transition-colors">101 Collins Street<br/>Melbourne VIC 3000</p>
-                  </div>
-                  <div className="group">
-                    <h4 className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-4 group-hover:text-gold-400 transition-colors">Brisbane</h4>
-                    <p className="text-zinc-500 text-sm leading-loose font-light group-hover:text-zinc-400 transition-colors">Level 1, 192A Ann St<br/>Brisbane QLD 4000</p>
-                  </div>
-                  <div className="group">
-                    <h4 className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-4 group-hover:text-gold-400 transition-colors">Perth</h4>
-                    <p className="text-zinc-500 text-sm leading-loose font-light group-hover:text-zinc-400 transition-colors">Brookfield Place<br/>125 St Georges Terrace<br/>Perth WA 6000</p>
-                  </div>
-                  <div className="group">
-                    <h4 className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-4 group-hover:text-gold-400 transition-colors">Adelaide</h4>
-                    <p className="text-zinc-500 text-sm leading-loose font-light group-hover:text-zinc-400 transition-colors">Westpac House<br/>91 King William St<br/>Adelaide SA 5000</p>
-                  </div>
+                  <span className="hidden sm:inline-flex text-gold-500/60 text-[10px] uppercase tracking-[0.2em] border border-gold-500/20 rounded-full px-4 py-2">By Appointment</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    { city: 'Sydney', region: 'New South Wales' },
+                    { city: 'Melbourne', region: 'Victoria' },
+                    { city: 'Brisbane', region: 'Queensland' },
+                    { city: 'Perth', region: 'Western Australia' },
+                    { city: 'Adelaide', region: 'South Australia' },
+                  ].map((location) => (
+                    <div key={location.city} className="group border border-gold-500/15 bg-charcoal-950/40 p-5 transition-all duration-500 hover:translate-x-1 hover:-translate-y-1 hover:border-gold-500/50 hover:bg-gold-500/[0.06] hover:shadow-[0_14px_45px_rgba(194,163,100,0.12)]">
+                      <h4 className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-3 group-hover:text-gold-300 transition-colors">{location.city}</h4>
+                      <p className="text-zinc-400 text-sm leading-relaxed font-light group-hover:text-zinc-300 transition-colors">{location.region}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </Reveal>
