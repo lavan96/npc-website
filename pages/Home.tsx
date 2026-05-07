@@ -17,8 +17,8 @@ export const Home: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-charcoal-950/40 mix-blend-multiply z-10" />
           <img 
-            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop" 
-             alt="Strategic property consultation in a premium office" 
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2675&auto=format&fit=crop" 
+             alt="Luxury Architecture" 
             className="w-full h-full object-cover scale-[1.02] transform hover:scale-[1.05] transition-transform duration-[20s] ease-out opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/60 to-transparent z-10" />
