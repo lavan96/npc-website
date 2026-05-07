@@ -36,15 +36,15 @@ export const Team: React.FC = () => {
       </section>
 
       <section className="pb-32 md:pb-48 bg-[#0C0C0B] px-6 relative border-t border-charcoal-800">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-px gap-x-px bg-charcoal-800">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {partners.map((partner, index) => (
-            <Reveal key={index} delay={index * 50} direction="up" className="bg-[#0C0C0B]">
-              <div className="p-8 lg:p-10 h-full hover:bg-gold-500/[0.02] transition-colors duration-500 group flex flex-col relative overflow-hidden">
+            <Reveal key={index} delay={index * 50} direction="up" className="">
+              <div className="p-8 lg:p-10 h-full bg-gold-500/[0.05] border border-gold-500/50 transition-all duration-700 group flex flex-col relative overflow-hidden hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)]">
                 <div className="absolute -right-4 -top-4 text-[100px] font-serif font-bold text-charcoal-900/50 group-hover:text-gold-900/10 transition-colors duration-700 select-none hidden md:block">
                   {partner.num}
                 </div>
                 
-                <div className="mb-10 border border-charcoal-800 p-4 rounded-full w-fit group-hover:border-gold-500/50 transition-colors duration-500 relative z-10">
+                <div className="mb-10 border border-gold-500/30 bg-gold-500/10 p-4 rounded-full w-fit group-hover:border-gold-500/70 group-hover:scale-110 group-hover:rotate-3 transition-all duration-700 relative z-10">
                   <partner.icon strokeWidth={1} className="text-gold-500 w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 

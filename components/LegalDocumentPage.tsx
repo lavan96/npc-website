@@ -66,7 +66,7 @@ export const LegalDocumentPage: React.FC<LegalDocumentPageProps> = ({
 
                 <div className="grid gap-5">
                   {metaCards.map((card) => (
-                    <article key={card.title} className="border border-gold-500/15 bg-white/[0.02] p-6">
+                    <article key={card.title} className="border border-gold-500/50 bg-gold-500/[0.05] p-6 transition-all duration-700 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_20px_70px_rgba(194,163,100,0.14)]">
                       <div className="text-gold-500 text-[10px] tracking-[0.2em] uppercase font-semibold mb-3">{card.label}</div>
                       <h2 className="text-white text-xl font-serif mb-3">{card.title}</h2>
                       <p className="text-zinc-400 text-sm leading-relaxed font-light">{card.text}</p>
@@ -108,7 +108,7 @@ export const LegalDocumentPage: React.FC<LegalDocumentPageProps> = ({
 
               <div className="px-8 md:px-10 pb-6">
                 {sections.map((section) => (
-                  <section key={section.id} id={section.id} className="scroll-mt-32 py-9 border-b border-white/[0.08] last:border-b-0">
+                  <section key={section.id} id={section.id} className="scroll-mt-32 p-6 my-4 border border-gold-500/30 bg-gold-500/[0.03] transition-all duration-700 hover:border-gold-500/60 hover:bg-gold-500/[0.06] hover:-translate-y-1 hover:shadow-[0_18px_60px_rgba(194,163,100,0.12)]">
                     <div className="grid grid-cols-1 md:grid-cols-[84px_minmax(0,1fr)] gap-4 md:gap-6">
                       <div className="text-gold-500/30 text-4xl font-serif leading-none tracking-tight">{section.number}</div>
                       <div>

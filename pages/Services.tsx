@@ -104,7 +104,7 @@ export const Services: React.FC = () => {
               }
             ].map((step, idx) => (
               <Reveal key={idx} delay={idx * 150} direction="up" className="h-full">
-                <div className="p-8 h-full border bg-gold-500/[0.05] border-gold-500/50 transition-colors duration-500 relative flex flex-col">
+                <div className="p-8 h-full border bg-gold-500/[0.05] border-gold-500/50 transition-all duration-700 relative flex flex-col hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)] overflow-hidden group">
                   <div className="text-gold-500/50 font-serif text-2xl mb-6">0{idx + 1}</div>
                   <h3 className="text-xl font-serif mb-4 text-gold-400">{step.title}</h3>
                   <p className="text-zinc-400 font-light text-sm leading-relaxed">{step.desc}</p>
@@ -158,7 +158,7 @@ export const Services: React.FC = () => {
               { title: "Strategy", items: ["Investment Goal Alignment", "Borrowing Impact", "10-Year Viability"], metric: "Portfolio Fit Confirmed" }
             ].map((pillar, i) => (
               <Reveal key={i} delay={i * 100} direction="up">
-                <div className="border border-gold-500/50 p-8 h-full bg-gold-500/[0.05] transition-colors duration-500 flex flex-col">
+                <div className="border border-gold-500/50 p-8 h-full bg-gold-500/[0.05] transition-all duration-700 flex flex-col hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)] relative overflow-hidden group">
                   <div className="flex items-center justify-between mb-6 border-b border-gold-500/20 pb-4">
                     <h3 className="text-xl font-serif text-gold-400">{pillar.title}</h3>
                     <CheckCircle2 size={20} className="text-gold-500/60" />
@@ -192,7 +192,7 @@ export const Services: React.FC = () => {
           <div className="grid grid-cols-1 gap-12 lg:gap-16">
             {capabilities.map((service, index) => (
               <Reveal key={index} delay={100} direction="up" width="100%">
-                <div className="group relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start py-8 border-b border-charcoal-800/50 hover:border-gold-500/30 transition-colors duration-700">
+                <div className="group relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start p-8 mb-6 border border-gold-500/50 bg-gold-500/[0.05] transition-all duration-700 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.14)] overflow-hidden">
                   
                   {/* Number & Icon */}
                   <div className="lg:col-span-2 flex items-center lg:items-start gap-6 lg:flex-col lg:gap-8">
