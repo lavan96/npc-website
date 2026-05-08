@@ -5,9 +5,7 @@ import { Button } from '../components/ui/Button';
 import { ArrowRight, TrendingUp, ShieldCheck, PieChart, Building2, Target, CheckCircle2, XCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { PageRoutes } from '../types';
-import consultationImageSourcePath from '../assets/strategic-consultation-image.txt?url';
-
-const strategicConsultationImage = `${import.meta.env.BASE_URL}ChatGPT%20Image%20May%208,%202026,%2004_03_02%20AM.png`;
+const strategicConsultationImage = `${import.meta.env.BASE_URL}WhatsApp%20Image%202026-05-08%20at%2023.21.39.jpeg`;
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -67,17 +65,24 @@ export const Home: React.FC = () => {
           <Reveal direction="right">
             <div className="relative max-w-[560px] mx-auto lg:mx-0">
               <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 -translate-y-4" />
+
               <div className="relative aspect-[3/4] overflow-hidden">
-                <img 
-                  src={consultationImageSource} 
-                  alt="High-level strategic property advisory consultation with clients reviewing portfolio and financial planning documents" 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
+                <img
+                  src={strategicConsultationImage}
+                  alt="NPC private advisory consultation reviewing investment strategy"
+                  className="w-full h-full object-cover object-center grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
                 />
-                <div className="absolute inset-0 max-h-full bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent pointer-events-none" />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent pointer-events-none" />
               </div>
+
               <div className="absolute -bottom-10 -right-10 bg-charcoal-900 border border-gold-500/20 p-10 shadow-2xl hidden md:block backdrop-blur-md">
-                <p className="font-serif text-3xl text-gold-500 mb-2 tracking-tight">The Big Difference</p>
-                <p className="text-xs tracking-widest text-zinc-400 uppercase font-light">Structure Vs. Transaction</p>
+                <p className="font-serif text-3xl text-gold-500 mb-2 tracking-tight">
+                  The Big Difference
+                </p>
+                <p className="text-xs tracking-widest text-zinc-400 uppercase font-light">
+                  Structure Vs. Transaction
+                </p>
               </div>
             </div>
           </Reveal>
