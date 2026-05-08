@@ -6,7 +6,7 @@ import { ArrowRight, TrendingUp, ShieldCheck, PieChart, Building2, Target, Check
 import { useNavigate } from 'react-router-dom';
 import { PageRoutes } from '../types';
 
-const strategicConsultationImage = `${import.meta.env.BASE_URL}WhatsApp%20Image%202026-05-08%20at%2023.21.38.jpeg`;
+const bigDifferenceConsultationImage = `${import.meta.env.BASE_URL}${encodeURIComponent('WhatsApp Image 2026-05-08 at 23.21.38.jpeg')}`;
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -68,7 +68,7 @@ export const Home: React.FC = () => {
               <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 -translate-y-4" />
               <div className="relative aspect-[3/4] overflow-hidden">
                 <img 
-                  src={strategicConsultationImage} 
+                  src={bigDifferenceConsultationImage} 
                   alt="NPC private advisory consultation reviewing investment strategy" 
                   className="w-full h-full object-cover object-center grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
                 />
