@@ -61,10 +61,11 @@ export const About: React.FC = () => {
           <div className="lg:col-span-7 relative">
             <Reveal direction="left" delay={300} className="h-full">
               <div className="relative h-full min-h-[500px] w-full">
-                <img 
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2669&auto=format&fit=crop" 
-                  alt="Office Meeting" 
-                  className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[2s] ease-in-out"
+                <div
+                  role="img"
+                  aria-label="Property advisory meeting"
+                  className="absolute inset-0 w-full h-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-[2s] ease-in-out"
+                  style={{ backgroundImage: `url("${import.meta.env.BASE_URL}about-advisory-meeting.png")` }}
                 />
                 <div className="absolute inset-0 mix-blend-multiply bg-gold-900/10 pointer-events-none" />
                 <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 translate-y-4 pointer-events-none hidden md:block" />
@@ -100,7 +101,7 @@ export const About: React.FC = () => {
               }
             ].map((mission, index) => (
               <Reveal key={index} delay={index * 100} direction="up" className="bg-[#0C0C0B]">
-                <div className="p-12 md:p-16 h-full hover:bg-charcoal-900 transition-colors duration-500 group flex flex-col justify-center">
+                <div className="p-12 md:p-16 h-full bg-gold-500/[0.05] border border-gold-500/50 transition-all duration-700 group flex flex-col justify-center hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)] relative overflow-hidden">
                   <div className="w-12 h-[1px] bg-gold-500/50 mb-8 group-hover:w-24 transition-all duration-700" />
                   <h3 className="text-2xl font-serif text-white mb-4 group-hover:text-gold-400 transition-colors">{mission.title}</h3>
                   <p className="text-zinc-400 font-light leading-relaxed max-w-lg">{mission.desc}</p>
@@ -160,7 +161,7 @@ export const About: React.FC = () => {
               }
             ].map((item, i) => (
               <Reveal key={i} delay={i * 150} direction="up">
-                <div className="group border-t border-charcoal-800 pt-8 hover:border-gold-500/50 transition-colors duration-500">
+                <div className="group border border-gold-500/50 bg-gold-500/[0.05] p-8 transition-all duration-700 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)] relative overflow-hidden">
                   <span className="text-gold-500/50 font-serif text-3xl block mb-6 italic">{item.num}</span>
                   <h3 className="text-2xl font-serif text-white mb-4 group-hover:text-gold-400 transition-colors">{item.head}</h3>
                   <p className="text-zinc-500 font-light leading-relaxed group-hover:text-zinc-400 transition-colors">{item.text}</p>
@@ -220,7 +221,7 @@ export const About: React.FC = () => {
               }
             ].map((stage, i) => (
               <Reveal key={i} delay={i * 100} direction="up">
-                <div className="relative pl-6 lg:pl-0 lg:pt-8 border-l lg:border-l-0 lg:border-t border-charcoal-800 hover:border-gold-500/50 transition-colors duration-500 group h-full">
+                <div className="relative p-8 border border-gold-500/50 bg-gold-500/[0.05] transition-all duration-700 group h-full hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)] overflow-hidden">
                   <span className="text-gold-500/30 font-serif text-4xl block mb-6 italic group-hover:text-gold-500/70 transition-colors duration-500">0{i+1}</span>
                   <h3 className="text-xl font-serif text-white mb-4 group-hover:text-gold-400 transition-colors tracking-wide pr-4 w-5/6">{stage.title}</h3>
                   <p className="text-zinc-500 font-light text-sm leading-relaxed">{stage.desc}</p>

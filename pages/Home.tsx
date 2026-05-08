@@ -5,6 +5,11 @@ import { Button } from '../components/ui/Button';
 import { ArrowRight, TrendingUp, ShieldCheck, PieChart, Building2, Target, CheckCircle2, XCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { PageRoutes } from '../types';
+import consultationImageSourcePath from '../assets/strategic-consultation-image.txt?url';
+
+const transparentPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+
+const strategicConsultationImage = `${import.meta.env.BASE_URL}WhatsApp%20Image%202026-05-08%20at%2023.21.39.jpeg`;
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -18,7 +23,7 @@ export const Home: React.FC = () => {
           <div className="absolute inset-0 bg-charcoal-950/40 mix-blend-multiply z-10" />
           <img 
             src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2675&auto=format&fit=crop" 
-            alt="Luxury Architecture" 
+                  alt="Luxury Architecture" 
             className="w-full h-full object-cover scale-[1.02] transform hover:scale-[1.05] transition-transform duration-[20s] ease-out opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/60 to-transparent z-10" />
@@ -62,12 +67,12 @@ export const Home: React.FC = () => {
       <section className="py-32 md:py-48 bg-[#0C0C0B] relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <Reveal direction="right">
-            <div className="relative">
+            <div className="relative max-w-[560px] mx-auto lg:mx-0">
               <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 -translate-y-4" />
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[3/4] overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop" 
-                  alt="Strategic Consulting" 
+                  src={consultationImageSource} 
+                  alt="High-level strategic property advisory consultation with clients reviewing portfolio and financial planning documents" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
                 />
                 <div className="absolute inset-0 max-h-full bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent pointer-events-none" />
@@ -146,14 +151,14 @@ export const Home: React.FC = () => {
               }
             ].map((audience, idx) => (
               <Reveal key={idx} delay={idx * 150} direction="up">
-                <div className="bg-[#0C0C0B] border border-charcoal-800 p-10 h-full hover:border-gold-500/40 transition-colors duration-500 flex flex-col justify-between group">
+                <div className="bg-gold-500/[0.05] border border-gold-500/50 p-10 h-full transition-all duration-700 flex flex-col justify-between group hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)] relative overflow-hidden">
                   <div>
-                    <h3 className="text-xl font-serif text-white mb-4 group-hover:text-gold-400 transition-colors">{audience.title}</h3>
-                    <p className="text-zinc-500 font-light leading-relaxed text-sm">
+                    <h3 className="text-xl font-serif text-gold-400 mb-4 transition-colors">{audience.title}</h3>
+                    <p className="text-zinc-400 font-light leading-relaxed text-sm group-hover:text-zinc-300 transition-colors duration-500">
                       {audience.desc}
                     </p>
                   </div>
-                  <Target className="w-5 h-5 text-charcoal-800 mt-8 group-hover:text-gold-500/50 transition-colors" />
+                  <Target className="w-5 h-5 text-gold-500/50 mt-8 transition-all duration-700 group-hover:text-gold-400 group-hover:rotate-12 group-hover:scale-125" />
                 </div>
               </Reveal>
             ))}
@@ -177,7 +182,7 @@ export const Home: React.FC = () => {
           
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             <Reveal direction="left" delay={200}>
-              <div className="space-y-6">
+              <div className="space-y-6 border border-gold-500/50 bg-gold-500/[0.05] p-8 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_70px_rgba(194,163,100,0.14)]">
                 <h3 className="text-gold-500 text-[10px] uppercase tracking-[0.2em]">Our Process Requires:</h3>
                 <ul className="space-y-4">
                   {['Commitment to a long-term strategy', 'Willingness to follow data-driven guidance', 'A focus on building wealth, not chasing deals'].map((req, i) => (
@@ -191,7 +196,7 @@ export const Home: React.FC = () => {
             </Reveal>
             
             <Reveal direction="left" delay={400}>
-              <div className="space-y-6">
+              <div className="space-y-6 border border-gold-500/50 bg-gold-500/[0.05] p-8 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_70px_rgba(194,163,100,0.14)]">
                 <h3 className="text-zinc-500 text-[10px] uppercase tracking-[0.2em]">We are NOT suited for:</h3>
                 <ul className="space-y-4">
                   {['People looking for quick wins or shortcuts', 'Emotional buyers driven by impulse', 'Those unwilling to follow a structured process'].map((notFit, i) => (
@@ -226,7 +231,7 @@ export const Home: React.FC = () => {
                 { title: "Strategic Negotiation", desc: "Securing the premium asset at the optimal price through experienced deal-making and auction bidding." }
               ].map((service, idx) => (
                 <Reveal key={idx} delay={idx * 100} direction="up">
-                  <div className={`py-12 border-b border-charcoal-800 hover:border-gold-500/40 group transition-colors duration-500 ${idx === 0 ? 'border-t' : ''}`}>
+                  <div className={`p-8 mb-6 border border-gold-500/50 bg-gold-500/[0.05] group transition-all duration-700 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.14)] ${idx === 0 ? '' : ''}`}>
                     <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
                       <h3 className="text-2xl md:text-3xl font-serif text-white group-hover:text-gold-400 transition-colors md:w-1/3">
                         {service.title}

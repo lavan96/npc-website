@@ -192,7 +192,7 @@ export const Services: React.FC = () => {
           <div className="grid grid-cols-1 gap-12 lg:gap-16">
             {capabilities.map((service, index) => (
               <Reveal key={index} delay={100} direction="up" width="100%">
-                <div className="group relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start py-8 border-b border-charcoal-800/50 hover:border-gold-500/30 transition-colors duration-700">
+                <div className="group relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start p-8 mb-6 border border-gold-500/50 bg-gold-500/[0.05] transition-all duration-700 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_24px_80px_rgba(194,163,100,0.14)] overflow-hidden">
                   
                   {/* Number & Icon */}
                   <div className="lg:col-span-2 flex items-center lg:items-start gap-6 lg:flex-col lg:gap-8">
