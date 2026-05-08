@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Layout } from '../components/Layout';
 import { Reveal } from '../components/ui/Reveal';
 import { Button } from '../components/ui/Button';
@@ -6,36 +6,10 @@ import { ArrowRight, TrendingUp, ShieldCheck, PieChart, Building2, Target, Check
 import { useNavigate } from 'react-router-dom';
 import { PageRoutes } from '../types';
 
-const consultationImageSourcePath = '/assets/strategic-consultation-image.txt';
-const transparentPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+const strategicConsultationImage = '/home-strategic-consultation.png';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
-  const [consultationImageSource, setConsultationImageSource] = useState(transparentPlaceholder);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    fetch(consultationImageSourcePath)
-      .then((response) => response.text())
-      .then((source) => {
-        if (!isMounted) {
-          return;
-        }
-
-        setConsultationImageSource(
-          source
-            .split('\n')
-            .filter((line) => !line.startsWith('#'))
-            .join('')
-            .trim(),
-        );
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   return (
     <Layout>
@@ -94,8 +68,8 @@ export const Home: React.FC = () => {
               <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 -translate-y-4" />
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img 
-                  src={consultationImageSource} 
-                  alt="Premium strategic advisory consultation with clients reviewing portfolio performance" 
+                  src={strategicConsultationImage} 
+                  alt="NPC branded investment strategy materials overlooking a city skyline" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
                 />
                 <div className="absolute inset-0 max-h-full bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent pointer-events-none" />
