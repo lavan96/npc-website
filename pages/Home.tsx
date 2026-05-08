@@ -6,7 +6,7 @@ import { ArrowRight, TrendingUp, ShieldCheck, PieChart, Building2, Target, Check
 import { useNavigate } from 'react-router-dom';
 import { PageRoutes } from '../types';
 
-const strategicConsultationImage = `${import.meta.env.BASE_URL}WhatsApp%20Image%202026-05-08%20at%2023.21.38.jpeg`;
+const strategicConsultationImage = `${import.meta.env.BASE_URL}WhatsApp%20Image%202026-05-08%20at%2023.21.39.jpeg`;
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
