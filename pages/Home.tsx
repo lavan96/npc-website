@@ -7,9 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { PageRoutes } from '../types';
 import consultationImageSourcePath from '../assets/strategic-consultation-image.txt?url';
 
-const transparentPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-
-const strategicConsultationImage = `${import.meta.env.BASE_URL}WhatsApp%20Image%202026-05-08%20at%2023.21.39.jpeg`;
+const strategicConsultationImage = `${import.meta.env.BASE_URL}ChatGPT%20Image%20May%208,%202026,%2004_03_02%20AM.png`;
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
