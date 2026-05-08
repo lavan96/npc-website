@@ -69,7 +69,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="cursor-pointer z-50 group flex items-center mx-auto md:mx-0"
+            className="cursor-pointer z-50 group flex items-center"
             aria-label="Naidu Property Consulting Services home"
           >
             <img
