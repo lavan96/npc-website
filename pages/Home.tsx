@@ -9,6 +9,9 @@ import consultationImageSourcePath from '../assets/strategic-consultation-image.
 
 const transparentPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
+const consultationImageSourcePath = '/assets/strategic-consultation-image.txt';
+const transparentPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [consultationImageSource, setConsultationImageSource] = useState(transparentPlaceholder);
