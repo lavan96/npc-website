@@ -5,6 +5,9 @@ import { Button } from '../components/ui/Button';
 import { ArrowRight, TrendingUp, ShieldCheck, PieChart, Building2, Target, CheckCircle2, XCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { PageRoutes } from '../types';
+import consultationImageSourcePath from '../assets/strategic-consultation-image.txt?url';
+
+const transparentPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
 const strategicConsultationImage = `${import.meta.env.BASE_URL}WhatsApp%20Image%202026-05-08%20at%2023.21.39.jpeg`;
 
@@ -68,9 +71,9 @@ export const Home: React.FC = () => {
               <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 -translate-y-4" />
               <div className="relative aspect-[3/4] overflow-hidden">
                 <img 
-                  src={bigDifferenceConsultationImage} 
-                  alt="NPC private advisory consultation reviewing investment strategy" 
-                  className="w-full h-full object-cover object-center grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
+                  src={consultationImageSource} 
+                  alt="High-level strategic property advisory consultation with clients reviewing portfolio and financial planning documents" 
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
                 />
                 <div className="absolute inset-0 max-h-full bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent pointer-events-none" />
               </div>
