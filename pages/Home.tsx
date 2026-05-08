@@ -94,7 +94,7 @@ export const Home: React.FC = () => {
               <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 -translate-y-4" />
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img 
-                  src="/images/npc-big-difference-strategy-consultation.jpg" 
+                  src={consultationImageSource} 
                   alt="Premium strategic advisory consultation with clients reviewing portfolio performance" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
                 />
