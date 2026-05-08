@@ -1,13 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Layout } from '../components/Layout';
 import { Reveal } from '../components/ui/Reveal';
-import { Button } from '../components/ui/Button';
-import { Lock, FileText, ChevronRight, CheckCircle2, Search } from 'lucide-react';
+import { FileText, CheckCircle2, Search } from 'lucide-react';
+
+type LeadMagnetEmbedProps = {
+  slug: string;
+};
+
+const leadMagnetEmbedBaseUrl = 'https://command-centre.npcservices.com.au/lead-magnet-embed.html';
+
+const leadMagnetEmbedStyle: React.CSSProperties = {
+  width: '100%',
+  maxWidth: '560px',
+  height: '560px',
+  border: 0,
+  display: 'block',
+  margin: '0 auto',
+  background: 'transparent',
+};
+
+const LeadMagnetEmbed: React.FC<LeadMagnetEmbedProps> = ({ slug }) => (
+  <iframe
+    src={`${leadMagnetEmbedBaseUrl}?slug=${slug}`}
+    style={leadMagnetEmbedStyle}
+    loading="lazy"
+    title="Request Access"
+    allow="clipboard-write"
+  />
+);
 
 export const Insights: React.FC = () => {
-  const [guideRequested, setGuideRequested] = useState(false);
-  const [checklistRequested, setChecklistRequested] = useState(false);
-
   return (
     <Layout>
       {/* Hero Section */}
@@ -63,34 +85,8 @@ export const Insights: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-
-                <div className="p-8 md:p-12 bg-gold-500/[0.03] relative">
-                  {!guideRequested ? (
-                    <div className="space-y-6">
-                      <h4 className="text-white font-serif text-xl flex items-center gap-3">
-                        <Lock size={16} className="text-gold-500" /> Request Access
-                      </h4>
-                      <input 
-                        type="text" 
-                        placeholder="Full Name" 
-                        className="w-full bg-charcoal-950 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm font-light"
-                      />
-                      <input 
-                        type="email" 
-                        placeholder="Corporate or Personal Email" 
-                        className="w-full bg-charcoal-950 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm font-light"
-                      />
-                      <Button fullWidth onClick={() => setGuideRequested(true)}>Unlock Guide</Button>
-                    </div>
-                  ) : (
-                    <div className="py-10 text-center space-y-4">
-                      <div className="w-12 h-12 rounded-full border border-gold-500/50 flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle2 className="text-gold-500 w-5 h-5" />
-                      </div>
-                      <h4 className="text-white font-serif text-xl">Access Granted</h4>
-                      <p className="text-zinc-500 text-sm font-light">The survival guide has been securely dispatched to your inbox.</p>
-                    </div>
-                  )}
+                <div className="p-6 md:p-8 bg-gold-500/[0.03] relative">
+                  <LeadMagnetEmbed slug="first-time-property-investor-survival-guide" />
                 </div>
               </div>
             </Reveal>
@@ -127,34 +123,8 @@ export const Insights: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-
-                <div className="p-8 md:p-12 bg-gold-500/[0.03] relative">
-                  {!checklistRequested ? (
-                    <div className="space-y-6">
-                      <h4 className="text-white font-serif text-xl flex items-center gap-3">
-                        <Lock size={16} className="text-gold-500" /> Request Access
-                      </h4>
-                      <input 
-                        type="text" 
-                        placeholder="Full Name" 
-                        className="w-full bg-charcoal-950 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm font-light"
-                      />
-                      <input 
-                        type="email" 
-                        placeholder="Corporate or Personal Email" 
-                        className="w-full bg-charcoal-950 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm font-light"
-                      />
-                      <Button fullWidth onClick={() => setChecklistRequested(true)}>Unlock Checklist</Button>
-                    </div>
-                  ) : (
-                    <div className="py-10 text-center space-y-4">
-                      <div className="w-12 h-12 rounded-full border border-gold-500/50 flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle2 className="text-gold-500 w-5 h-5" />
-                      </div>
-                      <h4 className="text-white font-serif text-xl">Access Granted</h4>
-                      <p className="text-zinc-500 text-sm font-light">The Due Diligence framework has been securely dispatched to your inbox.</p>
-                    </div>
-                  )}
+                <div className="p-6 md:p-8 bg-gold-500/[0.03] relative">
+                  <LeadMagnetEmbed slug="full-property-due-diligence-checklist" />
                 </div>
               </div>
             </Reveal>

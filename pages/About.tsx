@@ -63,9 +63,9 @@ export const About: React.FC = () => {
               <div className="relative h-full min-h-[500px] w-full">
                 <div
                   role="img"
-                  aria-label="Office Meeting"
+                  aria-label="Property advisory meeting"
                   className="absolute inset-0 w-full h-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-[2s] ease-in-out"
-                  style={{ backgroundImage: 'url("/ChatGPT Image May 8, 2026, 04_03_02 AM.png")' }}
+                  style={{ backgroundImage: `url("${import.meta.env.BASE_URL}about-advisory-meeting.png")` }}
                 />
                 <div className="absolute inset-0 mix-blend-multiply bg-gold-900/10 pointer-events-none" />
                 <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 translate-y-4 pointer-events-none hidden md:block" />

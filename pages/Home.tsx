@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Layout } from '../components/Layout';
 import { Reveal } from '../components/ui/Reveal';
 import { Button } from '../components/ui/Button';
@@ -9,36 +9,10 @@ import consultationImageSourcePath from '../assets/strategic-consultation-image.
 
 const transparentPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
-const consultationImageSourcePath = '/assets/strategic-consultation-image.txt';
-const transparentPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+const strategicConsultationImage = `${import.meta.env.BASE_URL}WhatsApp%20Image%202026-05-08%20at%2023.21.39.jpeg`;
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
-  const [consultationImageSource, setConsultationImageSource] = useState(transparentPlaceholder);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    fetch(consultationImageSourcePath)
-      .then((response) => response.text())
-      .then((source) => {
-        if (!isMounted) {
-          return;
-        }
-
-        setConsultationImageSource(
-          source
-            .split('\n')
-            .filter((line) => !line.startsWith('#'))
-            .join('')
-            .trim(),
-        );
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   return (
     <Layout>
@@ -93,9 +67,9 @@ export const Home: React.FC = () => {
       <section className="py-32 md:py-48 bg-[#0C0C0B] relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <Reveal direction="right">
-            <div className="relative">
+            <div className="relative max-w-[560px] mx-auto lg:mx-0">
               <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 -translate-y-4" />
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[3/4] overflow-hidden">
                 <img 
                   src={consultationImageSource} 
                   alt="High-level strategic property advisory consultation with clients reviewing portfolio and financial planning documents" 
