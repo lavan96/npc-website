@@ -68,7 +68,7 @@ export const Home: React.FC = () => {
               <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 -translate-y-4" />
               <div className="relative aspect-[3/4] overflow-hidden">
                 <img 
-                  src={strategicConsultationImage} 
+                  src={bigDifferenceConsultationImage} 
                   alt="NPC private advisory consultation reviewing investment strategy" 
                   className="w-full h-full object-cover object-center grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
                 />
