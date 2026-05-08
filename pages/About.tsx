@@ -66,7 +66,7 @@ export const About: React.FC = () => {
                   <img
                     src={aboutAdvisoryImage}
                     alt="NPC private advisory consultation"
-                    className="w-full h-full object-cover object-center grayscale"
+                    className="w-full h-full object-cover object-center grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
                   />
                 </div>
                 <div className="absolute inset-0 mix-blend-multiply bg-gold-900/10 pointer-events-none" />
