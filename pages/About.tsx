@@ -7,6 +7,7 @@ import { PageRoutes } from '../types';
 
 export const About: React.FC = () => {
   const navigate = useNavigate();
+  const aboutAdvisoryImage = `${import.meta.env.BASE_URL}WhatsApp%20Image%202026-05-08%20at%2023.21.38.jpeg`;
 
   return (
     <Layout>
@@ -61,12 +62,13 @@ export const About: React.FC = () => {
           <div className="lg:col-span-7 relative">
             <Reveal direction="left" delay={300} className="h-full">
               <div className="relative h-full min-h-[500px] w-full">
-                <div
-                  role="img"
-                  aria-label="Property advisory meeting"
-                  className="absolute inset-0 w-full h-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-[2s] ease-in-out"
-                  style={{ backgroundImage: `url("${import.meta.env.BASE_URL}ChatGPT%20Image%20May%208,%202026,%2003_43_35%20AM.png")` }}
-                />
+                <div className="relative overflow-hidden w-full h-full">
+                  <img
+                    src={aboutAdvisoryImage}
+                    alt="NPC private advisory consultation"
+                    className="w-full h-full object-cover object-center grayscale hover:grayscale-0 hover:scale-105 transition-all duration-[3s] ease-in-out"
+                  />
+                </div>
                 <div className="absolute inset-0 mix-blend-multiply bg-gold-900/10 pointer-events-none" />
                 <div className="absolute -inset-4 border border-gold-500/20 translate-x-4 translate-y-4 pointer-events-none hidden md:block" />
               </div>
