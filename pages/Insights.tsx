@@ -1,50 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Layout } from '../components/Layout';
 import { Reveal } from '../components/ui/Reveal';
-import { Button } from '../components/ui/Button';
-import { Lock, FileText, CheckCircle2, Search } from 'lucide-react';
+import { FileText, CheckCircle2, Search } from 'lucide-react';
 
-type LeadMagnetKey = 'guide' | 'checklist';
-
-type LeadMagnetField = 'fullName' | 'email' | 'phone';
-
-type LeadMagnetFormValues = Record<LeadMagnetField, string>;
-
-const emptyLeadMagnetForm: LeadMagnetFormValues = {
-  fullName: '',
-  email: '',
-  phone: '',
+type LeadMagnetEmbedProps = {
+  slug: string;
 };
 
+const leadMagnetEmbedBaseUrl = 'https://command-centre.npcservices.com.au/lead-magnet-embed.html';
+
+const leadMagnetEmbedStyle: React.CSSProperties = {
+  width: '100%',
+  maxWidth: '560px',
+  height: '560px',
+  border: 0,
+  display: 'block',
+  margin: '0 auto',
+  background: 'transparent',
+};
+
+const LeadMagnetEmbed: React.FC<LeadMagnetEmbedProps> = ({ slug }) => (
+  <iframe
+    src={`${leadMagnetEmbedBaseUrl}?slug=${slug}`}
+    style={leadMagnetEmbedStyle}
+    loading="lazy"
+    title="Request Access"
+    allow="clipboard-write"
+  />
+);
+
 export const Insights: React.FC = () => {
-  const [guideRequested, setGuideRequested] = useState(false);
-  const [checklistRequested, setChecklistRequested] = useState(false);
-  const [leadMagnetForms, setLeadMagnetForms] = useState<Record<LeadMagnetKey, LeadMagnetFormValues>>({
-    guide: { ...emptyLeadMagnetForm },
-    checklist: { ...emptyLeadMagnetForm },
-  });
-
-  const handleLeadMagnetChange = (resource: LeadMagnetKey, field: LeadMagnetField, value: string) => {
-    setLeadMagnetForms((currentForms) => ({
-      ...currentForms,
-      [resource]: {
-        ...currentForms[resource],
-        [field]: value,
-      },
-    }));
-  };
-
-  const handleLeadMagnetSubmit = (event: React.FormEvent<HTMLFormElement>, resource: LeadMagnetKey) => {
-    event.preventDefault();
-
-    if (resource === 'guide') {
-      setGuideRequested(true);
-      return;
-    }
-
-    setChecklistRequested(true);
-  };
-
   return (
     <Layout>
       {/* Hero Section */}
@@ -100,54 +85,8 @@ export const Insights: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-
-                <div className="p-8 md:p-12 bg-gold-500/[0.03] relative">
-                  {!guideRequested ? (
-                    <form className="space-y-6" onSubmit={(event) => handleLeadMagnetSubmit(event, 'guide')}>
-                      <h4 className="text-white font-serif text-xl flex items-center gap-3">
-                        <Lock size={16} className="text-gold-500" /> Request Access
-                      </h4>
-                      <input 
-                        type="text" 
-                        name="fullName"
-                        placeholder="Full Name" 
-                        autoComplete="name"
-                        required
-                        value={leadMagnetForms.guide.fullName}
-                        onChange={(event) => handleLeadMagnetChange('guide', 'fullName', event.target.value)}
-                        className="w-full bg-charcoal-950 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm font-light"
-                      />
-                      <input 
-                        type="email" 
-                        name="email"
-                        placeholder="Corporate or Personal Email" 
-                        autoComplete="email"
-                        required
-                        value={leadMagnetForms.guide.email}
-                        onChange={(event) => handleLeadMagnetChange('guide', 'email', event.target.value)}
-                        className="w-full bg-charcoal-950 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm font-light"
-                      />
-                      <input 
-                        type="tel" 
-                        name="phone"
-                        placeholder="Contact Number" 
-                        autoComplete="tel"
-                        required
-                        value={leadMagnetForms.guide.phone}
-                        onChange={(event) => handleLeadMagnetChange('guide', 'phone', event.target.value)}
-                        className="w-full bg-charcoal-950 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm font-light"
-                      />
-                      <Button type="submit" fullWidth>Unlock Guide</Button>
-                    </form>
-                  ) : (
-                    <div className="py-10 text-center space-y-4">
-                      <div className="w-12 h-12 rounded-full border border-gold-500/50 flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle2 className="text-gold-500 w-5 h-5" />
-                      </div>
-                      <h4 className="text-white font-serif text-xl">Access Granted</h4>
-                      <p className="text-zinc-500 text-sm font-light">The survival guide has been securely dispatched to your inbox.</p>
-                    </div>
-                  )}
+                <div className="p-6 md:p-8 bg-gold-500/[0.03] relative">
+                  <LeadMagnetEmbed slug="first-time-property-investor-survival-guide" />
                 </div>
               </div>
             </Reveal>
@@ -184,54 +123,8 @@ export const Insights: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-
-                <div className="p-8 md:p-12 bg-gold-500/[0.03] relative">
-                  {!checklistRequested ? (
-                    <form className="space-y-6" onSubmit={(event) => handleLeadMagnetSubmit(event, 'checklist')}>
-                      <h4 className="text-white font-serif text-xl flex items-center gap-3">
-                        <Lock size={16} className="text-gold-500" /> Request Access
-                      </h4>
-                      <input 
-                        type="text" 
-                        name="fullName"
-                        placeholder="Full Name" 
-                        autoComplete="name"
-                        required
-                        value={leadMagnetForms.checklist.fullName}
-                        onChange={(event) => handleLeadMagnetChange('checklist', 'fullName', event.target.value)}
-                        className="w-full bg-charcoal-950 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm font-light"
-                      />
-                      <input 
-                        type="email" 
-                        name="email"
-                        placeholder="Corporate or Personal Email" 
-                        autoComplete="email"
-                        required
-                        value={leadMagnetForms.checklist.email}
-                        onChange={(event) => handleLeadMagnetChange('checklist', 'email', event.target.value)}
-                        className="w-full bg-charcoal-950 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm font-light"
-                      />
-                      <input 
-                        type="tel" 
-                        name="phone"
-                        placeholder="Contact Number" 
-                        autoComplete="tel"
-                        required
-                        value={leadMagnetForms.checklist.phone}
-                        onChange={(event) => handleLeadMagnetChange('checklist', 'phone', event.target.value)}
-                        className="w-full bg-charcoal-950 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm font-light"
-                      />
-                      <Button type="submit" fullWidth>Unlock Checklist</Button>
-                    </form>
-                  ) : (
-                    <div className="py-10 text-center space-y-4">
-                      <div className="w-12 h-12 rounded-full border border-gold-500/50 flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle2 className="text-gold-500 w-5 h-5" />
-                      </div>
-                      <h4 className="text-white font-serif text-xl">Access Granted</h4>
-                      <p className="text-zinc-500 text-sm font-light">The Due Diligence framework has been securely dispatched to your inbox.</p>
-                    </div>
-                  )}
+                <div className="p-6 md:p-8 bg-gold-500/[0.03] relative">
+                  <LeadMagnetEmbed slug="full-property-due-diligence-checklist" />
                 </div>
               </div>
             </Reveal>
