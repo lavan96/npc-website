@@ -4,7 +4,7 @@ import { Reveal } from '../components/ui/Reveal';
 import { Button } from '../components/ui/Button';
 
 
-const ghlWebhookUrl = 'https://services.leadconnectorhq.com/hooks/H7NNnJKSofGaRJHTkAd3/webhook-trigger/758d1eed-9514-4351-a938-802e941b83fe';
+const ghlWebhookUrl = 'https://services.leadconnectorhq.com/hooks/H7NNnJKSofGaRJHTkAd3/webhook-trigger/ecdcb601-b6cd-450f-bf72-e143dd861152';
 const quizDestinationUrl = 'https://crm.npcservices.com.au/quiz';
 
 interface ContactFormState {
