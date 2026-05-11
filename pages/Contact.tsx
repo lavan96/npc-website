@@ -1,9 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Layout } from '../components/Layout';
 import { Reveal } from '../components/ui/Reveal';
 import { Button } from '../components/ui/Button';
 
+
+const ghlWebhookUrl = 'https://services.leadconnectorhq.com/hooks/H7NNnJKSofGaRJHTkAd3/webhook-trigger/ecdcb601-b6cd-450f-bf72-e143dd861152';
+const quizDestinationUrl = 'https://crm.npcservices.com.au/quiz';
+
+interface ContactFormState {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  acquisitionBrief: string;
+}
+
+const initialFormState: ContactFormState = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  acquisitionBrief: '',
+};
+
 export const Contact: React.FC = () => {
+  const [formState, setFormState] = useState<ContactFormState>(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const updateField = (field: keyof ContactFormState) => (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormState((current) => ({
+      ...current,
+      [field]: event.target.value,
+    }));
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitError('');
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(ghlWebhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+          email: formState.email,
+          phone: formState.phone,
+          acquisitionBrief: formState.acquisitionBrief,
+          source: 'NPC Website Contact Form',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Unable to submit enquiry.');
+      }
+
+      window.location.href = quizDestinationUrl;
+    } catch (error) {
+      console.error('Contact form submission failed:', error);
+      setSubmitError('We were unable to submit your enquiry. Please try again or contact us directly.');
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <Layout>
       <section className="pt-40 pb-24 md:pt-56 md:pb-32 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-900/10 via-charcoal-950 to-charcoal-950 px-6 overflow-hidden">
@@ -33,12 +99,17 @@ export const Contact: React.FC = () => {
             <div className="absolute -inset-4 bg-charcoal-900/50 backdrop-blur-3xl transform -skew-x-[4deg] hidden md:block" />
             <div className="bg-gold-500/[0.05] backdrop-blur-xl p-8 md:p-16 border border-gold-500/50 shadow-2xl relative z-10 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_24px_80px_rgba(194,163,100,0.16)]">
               <Reveal direction="right" delay={200}>
-                <form className="space-y-10">
+                <form className="space-y-10" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-3">
                       <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium ml-2">First Name</label>
                       <input 
                         type="text" 
+                        name="firstName"
+                        value={formState.firstName}
+                        onChange={updateField('firstName')}
+                        required
+                        autoComplete="given-name"
                         className="w-full bg-charcoal-950/50 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 focus:bg-charcoal-950 transition-all duration-500"
                         placeholder="John"
                       />
@@ -47,6 +118,11 @@ export const Contact: React.FC = () => {
                       <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium ml-2">Last Name</label>
                       <input 
                         type="text" 
+                        name="lastName"
+                        value={formState.lastName}
+                        onChange={updateField('lastName')}
+                        required
+                        autoComplete="family-name"
                         className="w-full bg-charcoal-950/50 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 focus:bg-charcoal-950 transition-all duration-500"
                         placeholder="Doe"
                       />
@@ -57,6 +133,11 @@ export const Contact: React.FC = () => {
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium ml-2">Email Address</label>
                     <input 
                       type="email" 
+                      name="email"
+                      value={formState.email}
+                      onChange={updateField('email')}
+                      required
+                      autoComplete="email"
                       className="w-full bg-charcoal-950/50 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 focus:bg-charcoal-950 transition-all duration-500"
                       placeholder="john@example.com"
                     />
@@ -66,6 +147,11 @@ export const Contact: React.FC = () => {
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium ml-2">Contact Number</label>
                     <input 
                       type="tel" 
+                      name="phone"
+                      value={formState.phone}
+                      onChange={updateField('phone')}
+                      required
+                      autoComplete="tel"
                       className="w-full bg-charcoal-950/50 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 focus:bg-charcoal-950 transition-all duration-500"
                       placeholder="+61 400 000 000"
                     />
@@ -75,13 +161,25 @@ export const Contact: React.FC = () => {
                     <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium ml-2">Acquisition Brief</label>
                     <textarea 
                       rows={5} 
+                      name="acquisitionBrief"
+                      value={formState.acquisitionBrief}
+                      onChange={updateField('acquisitionBrief')}
+                      required
                       className="w-full bg-charcoal-950/50 border-b border-charcoal-700 text-white p-4 focus:outline-none focus:border-gold-500 focus:bg-charcoal-950 transition-all duration-500 resize-none"
                       placeholder="Outline your investment objectives or specific property interests."
                     ></textarea>
                   </div>
 
+                  {submitError && (
+                    <p className="text-sm text-red-300 bg-red-950/30 border border-red-500/30 px-4 py-3" role="alert">
+                      {submitError}
+                    </p>
+                  )}
+
                   <div className="pt-4">
-                    <Button fullWidth onClick={(e) => e.preventDefault()}>Submit Enquiry</Button>
+                    <Button fullWidth type="submit" disabled={isSubmitting}>
+                      {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
+                    </Button>
                   </div>
                 </form>
               </Reveal>
